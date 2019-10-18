@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- 指定dao -->
+<mapper namespace="com.yan.spring.batch.learning.mapper.UserMapper">
+
+	<insert id="insertUser" parameterType="com.yan.spring.batch.learning.schema.User">
+    	insert into t_user 
+    	(userName, phone, email, validStatus, flag, insertTime, updateTime) 
+    	values 
+    	(#{userName}, #{phone}, #{email}, #{validStatus}, #{flag}, #{insertTime}, #{updateTime})
+    </insert>
+    
+    <select id="findUsersByFlag" parameterType="String" resultType="com.yan.spring.batch.learning.schema.User">
+        SELECT * FROM t_user WHERE flag = #{flag}
+    </select>
+    
+</mapper>
